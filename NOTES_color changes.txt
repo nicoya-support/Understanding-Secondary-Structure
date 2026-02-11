@@ -1,0 +1,60 @@
+sryle.css
+Old		New
+#9e247b		#67cbdf
+#851764		#67cbdf
+#b01f85		#91dae8
+#d64dae		#91dae8
+#4f123d		#13515e
+#faeaf6		#d4f0f7
+#c82d9c		#abe3ed
+#0069c7		#f1d898
+#004f95		#e9c155
+
+helicesScript.txt
+Old		New
+171, 181, 146	233, 193, 85
+113, 144, 112	33, 43, 56
+
+strandsScript.txt
+OLD		NEW
+171, 181, 146	233, 193, 85
+158,36,123	103, 203, 223
+
+preLoadingScript.txt
+OLD		NEW
+158,36,123	103, 203, 223
+
+builder.js
+OLD		NEW
+158,36,123	103, 203, 223
+
+controls.js
+OLD		NEW
+171, 181, 146	233, 193, 85
+113, 144, 112	33, 43, 56
+158,36,123	103, 203, 223
+149, 192, 61	122, 115, 191
+
+moleculeLOaded.js
+OLD		NEW
+158,36,123	103, 203, 223
+
+ramachandran.js
+OLD		NEW
+158,36,123	103, 203, 223
+
+subviews.js
+OLD		NEW
+158,36,123	103, 203, 223
+
+index.html
+OLD		NEW
+158,36,123	103, 203, 223
+#9e247b		#67cbdf
+#0058a7		#e9c155
+#abb592		#e9c155
+#95c03d		#7a73bf
+#719070		#212b38
+149, 192, 61	122, 115, 191
+171, 181, 146	233, 193, 85
+113, 144, 112	33, 43, 56
