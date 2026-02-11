@@ -1,0 +1,129 @@
+GitHub Pages Deployment Fixes
+Critical Fixes Applied ✅
+
+Fixed JavaScript syntax error (line 13)
+
+Removed URL that was incorrectly inserted in the getValueByKey function
+Changed from: function getValueByKey(object, row) {http://www.beta-sheet.org/...
+Changed to: function getValueByKey(object, row) {
+
+
+Fixed JSmol script reference (line 10)
+
+Changed from: <script src="./JSmol.min.js.download">
+Changed to: <script src="./JSmol.min.js">
+
+
+
+Additional Files You Need to Upload 📁
+For this page to work properly on GitHub Pages, you'll need to add these missing files to your repository:
+1. JSmol Library Files (REQUIRED)
+You need to download and include the complete JSmol distribution:
+
+Download from: https://sourceforge.net/projects/jmol/files/Jmol/
+Extract and upload the entire jsmol folder containing:
+
+JSmol.min.js (or the full version)
+j2s/ directory (contains Java2Script compiled code)
+php/ directory (for server-side features)
+Other JSmol support files
+
+
+
+2. CSS File (REQUIRED)
+
+Create or upload: style.css
+This file is referenced on line 6 but is missing
+
+3. PDB Files (REQUIRED)
+Your code references many PDB files that need to be in the same directory:
+
+idealalpha.pdb
+2trx.pdb, 1arb.pdb, 6ec0.pdb
+1u4g.pdb, 1v54.pdb, 1qoy.pdb, 2cpp.pdb
+1tvf.pdb, 5mbn.pdb, 1qte.pdb, 1rwz.pdb
+1kss.pdb, 1gpb.pdb, 2qd1.pdb, 2beg.pdb
+1ofs.pdb, 1ba7.pdb, 2yxf.pdb, 3cna.pdb
+And many more (see the full list in moleculeProps)
+
+4. Script Files (REQUIRED)
+
+helicesScript.txt (referenced on line 1654)
+
+5. Image Files
+
+ramachandran.svg (referenced in ramachandran.js)
+labels.svg (referenced in ramachandran.js)
+
+6. Additional JavaScript Files
+The following JS files are already provided but should be in the same directory:
+
+builder.js
+controls.js
+moleculeLoaded.js
+ramachandran.js
+subviews.js
+
+Repository Structure 📂
+Your GitHub Pages repository should look like this:
+your-repo/
+├── index.html (corrected version)
+├── style.css
+├── builder.js
+├── controls.js
+├── moleculeLoaded.js
+├── ramachandran.js
+├── subviews.js
+├── helicesScript.txt
+├── ramachandran.svg
+├── labels.svg
+├── jsmol/
+│   ├── JSmol.min.js
+│   ├── j2s/
+│   │   └── [many files]
+│   └── [other JSmol files]
+└── [all PDB files]
+    ├── idealalpha.pdb
+    ├── 2trx.pdb
+    ├── 1arb.pdb
+    └── [etc...]
+Configuration Tips 🔧
+
+GitHub Pages Settings
+
+Go to repository Settings → Pages
+Set source to your main branch
+Set folder to / (root) or /docs if you prefer
+
+
+Path References
+
+All paths in your HTML use relative references (./filename)
+This is correct for GitHub Pages
+Make sure all files are in the root or same directory
+
+
+Testing Locally
+
+Use a local web server (not just opening the file)
+Try: python -m http.server 8000
+Or use VS Code's Live Server extension
+
+
+
+Common Issues ⚠️
+
+404 errors: Missing PDB files or JSmol library
+JavaScript errors: Missing JSmol.min.js or syntax errors
+Blank page: Check browser console for errors
+CORS issues: Ensure all files are served from the same domain
+
+Quick Start 🚀
+
+Upload the corrected index.html
+Download JSmol from SourceForge
+Upload all PDB files
+Create a basic style.css if you don't have one
+Commit and push to GitHub
+Wait a few minutes for GitHub Pages to build
+Visit your site at: https://username.github.io/repo-name/
