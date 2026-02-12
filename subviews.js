@@ -19,7 +19,7 @@ function distorted(change) {
 			loadMoleculeIdx = 0;
 		}
 	}
-	Jmol.script(jmol_distorted, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load " + molecules[loadMoleculeIdx] + ".pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];");
+	Jmol.script(jmol_distorted, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =" + molecules[loadMoleculeIdx] + ";cartoon only;set cartoonFancy on;color [103, 203, 223];");
 	document.getElementById("PDB_ID_distorted").textContent = "PDB ID: " + molecules[loadMoleculeIdx];
 	document.getElementById("caption_distorted").innerHTML = moleculeProps[molecules[loadMoleculeIdx]]["caption"];
 }
@@ -81,7 +81,7 @@ function turn(change, type) {
 		}
 	}
 	currentIDs[type] = newSubtypeIdx;
-	Jmol.script(jmol_current, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load " + molecules[newKeyIdx] + ".pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];");
+	Jmol.script(jmol_current, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =" + molecules[newKeyIdx] + ";cartoon only;set cartoonFancy on;color [103, 203, 223];");
 	let molecule = getValueByKey(moleculeProps, molecules[newKeyIdx]);
 	document.getElementById(type + "_type").innerHTML = molecule["subtype"][newSubtypeIdx];
 	document.getElementById("PDB_ID_" + type).innerHTML =  "(PDB ID: " + molecules[newKeyIdx] + ")";
@@ -142,7 +142,7 @@ function bulge(change) {
 		}
 	}
 	currentIDs["bulge"] = newSubtypeIdx;
-	Jmol.script(jmol_bulge, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load " + molecules[newKeyIdx] + ".pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];");
+	Jmol.script(jmol_bulge, "set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =" + molecules[newKeyIdx] + ";cartoon only;set cartoonFancy on;color [103, 203, 223];");
 	let molecule = getValueByKey(moleculeProps, molecules[newKeyIdx]);
 	document.getElementById("bulge_type").innerHTML = molecule["subtype"][newSubtypeIdx];
 	document.getElementById("PDB_ID_bulge").innerHTML =  "(PDB ID: " + molecules[newKeyIdx] + ")";
