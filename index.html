@@ -426,16 +426,16 @@ const moleculeProps = {
   }
 };
  var JmolInfo = {
- width:'100%',
- height:'100%',
- color:'#FFFFFF',
- j2sPath:'jsmol/jsmol/j2s',
- serverURL:'jsmol/jsmol/php/jsmol.php',
- use:'html5',
- loadStructCallback:'moleculeLoaded',
- measureCallback:'measurementDone',
- messageCallback:'messageReceived'
-}
+  color: "#FFFFFF",
+  width: "100%",
+  height: "100%",
+  serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+  // REMOVE THE src LINE - molecules are loaded via Jmol.script() commands instead
+  use: "HTML5",
+  j2sPath: "./jsmol/jsmol/j2s",
+  disableJ2SLoadMonitor: true,
+  disableInitialConsole: true
+};
 
 const currentIDs = {
   "bulge": 0,
