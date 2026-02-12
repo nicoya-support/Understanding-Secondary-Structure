@@ -426,16 +426,16 @@ const moleculeProps = {
   }
 };
  var JmolInfo = {
-  color: "#FFFFFF",
-  width: "100%",
-  height: "100%",
-  serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
-  // REMOVE THE src LINE - molecules are loaded via Jmol.script() commands instead
-  use: "HTML5",
-  j2sPath: "./jsmol/jsmol/j2s",
-  disableJ2SLoadMonitor: true,
-  disableInitialConsole: true
-};
+ width:'100%',
+ height:'100%',
+ color:'#FFFFFF',
+ j2sPath:'jsmol/jsmol/j2s',
+ serverURL:'jsmol/jsmol/php/jsmol.php',
+ use:'html5',
+ loadStructCallback:'moleculeLoaded',
+ measureCallback:'measurementDone',
+ messageCallback:'messageReceived'
+}
 
 const currentIDs = {
   "bulge": 0,
@@ -1651,22 +1651,22 @@ for (i = 0; i < coll.length; i++) {
 				switch(divID) {
 					case "helices":
 						$('#JmolDiv_helices').html( Jmol.getAppletHtml(jmol_helices, JmolInfo) );
-						Jmol.script(jmol_helices, 'set disablePopupMenu TRUE;frank off;load idealalpha.pdb;trace only;trace 0.2;hide (*.HA);set perspectiveDepth off;zoom 250;select (*.CB or *.CA);color (*.CB) [122, 115, 191];wireframe on;wireframe reset;color [103, 203, 223];color (*.CB) [122, 115, 191];script helicesScript.txt;');
+						Jmol.script(jmol_helices, 'set disablePopupMenu TRUE;frank off;load =1MBN;trace only;trace 0.2;hide (*.HA);set perspectiveDepth off;zoom 250;select (*.CB or *.CA);color (*.CB) [122, 115, 191];wireframe on;wireframe reset;color [103, 203, 223];color (*.CB) [122, 115, 191];');
 					break;
 					case "strands":
 						residues = getValueByKey(moleculeProps, "2TRX")["residues"];
 						chains = getValueByKey(moleculeProps, "2TRX")["chains"];
 						var currentSelection = "(" + getSelectionString(residues, chains) + ")";
 						$('#JmolDiv_strands').html( Jmol.getAppletHtml(jmol_strands, JmolInfo) );
-						Jmol.script(jmol_strands, 'set disablePopupMenu TRUE;frank off;load 2trx.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];select {' + currentSelection + ' and (*.CB or *.CA)};color (*.CB) [122, 115, 191];wireframe on;wireframe reset;select {' + currentSelection + ' and backbone};hbonds calculate;set hbondsBackbone TRUE;hbonds on;color hbonds [247,148,36];hbonds 0.1;');
+						Jmol.script(jmol_strands, 'set disablePopupMenu TRUE;frank off;load =2TRX;cartoon only;set cartoonFancy on;color [103, 203, 223];select {' + currentSelection + ' and (*.CB or *.CA)};color (*.CB) [122, 115, 191];wireframe on;wireframe reset;select {' + currentSelection + ' and backbone};hbonds calculate;set hbondsBackbone TRUE;hbonds on;color hbonds [247,148,36];hbonds 0.1;');
 					break;
 					case "turns":
 						$('#JmolDiv_turns').html( Jmol.getAppletHtml(jmol_turns, JmolInfo) );
-						Jmol.script(jmol_turns, 'set disablePopupMenu TRUE;frank off;load 1arb.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_turns, 'set disablePopupMenu TRUE;frank off;load =1ARB;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "regular":
 						$('#JmolDiv_regular').html( Jmol.getAppletHtml(jmol_regular, JmolInfo) );
-						Jmol.script(jmol_regular, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 6ec0.pdb;hide chain=B;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_regular, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =6EC0;hide chain=B;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "distorted":
 						$('#JmolDiv_distorted').html( Jmol.getAppletHtml(jmol_distorted, JmolInfo) );
@@ -1674,27 +1674,27 @@ for (i = 0; i < coll.length; i++) {
 					break;
 					case "threeten":
 						$('#JmolDiv_310').html( Jmol.getAppletHtml(jmol_310, JmolInfo) );
-						Jmol.script(jmol_310, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 1gpb.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_310, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =1GPB;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "pihelix":
 						$('#JmolDiv_pi').html( Jmol.getAppletHtml(jmol_pi, JmolInfo) );
-						Jmol.script(jmol_pi, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 2qd1.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_pi, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =2QD1;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "parallel":
 						$('#JmolDiv_parallel').html( Jmol.getAppletHtml(jmol_parallel, JmolInfo) );
-						Jmol.script(jmol_parallel, 'set disablePopupMenu FALSE;frank off;set perspectiveDepth off;load 2beg.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_parallel, 'set disablePopupMenu FALSE;frank off;set perspectiveDepth off;load =2BEG;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "lefttwist":
 						$('#JmolDiv_lefttwist').html( Jmol.getAppletHtml(jmol_lefttwist, JmolInfo) );
-						Jmol.script(jmol_lefttwist, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 1ofs.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_lefttwist, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =1OFS;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "relaxed":
 						$('#JmolDiv_relaxed').html( Jmol.getAppletHtml(jmol_relaxed, JmolInfo) );
-						Jmol.script(jmol_relaxed, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 2yxf.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_relaxed, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =2YXF;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "righttwist":
 						$('#JmolDiv_righttwist').html( Jmol.getAppletHtml(jmol_righttwist, JmolInfo) );
-						Jmol.script(jmol_righttwist, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 1ba7.pdb;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_righttwist, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =1BA7;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 					case "bulge":
 						$('#JmolDiv_bulge').html( Jmol.getAppletHtml(jmol_bulge, JmolInfo) );
@@ -1726,7 +1726,7 @@ for (i = 0; i < coll.length; i++) {
 					break;
 					case "coil":
 						$('#JmolDiv_coil').html( Jmol.getAppletHtml(jmol_coil, JmolInfo) );
-						Jmol.script(jmol_coil, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load 1lri.pdb;hide chain=B;cartoon only;set cartoonFancy on;color [103, 203, 223];');
+						Jmol.script(jmol_coil, 'set disablePopupMenu TRUE;frank off;set perspectiveDepth off;load =1LRI;hide chain=B;cartoon only;set cartoonFancy on;color [103, 203, 223];');
 					break;
 				}
 				contentLoaded[divID] = true;
