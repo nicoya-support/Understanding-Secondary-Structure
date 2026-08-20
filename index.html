@@ -1642,10 +1642,9 @@ for (i = 0; i < coll.length; i++) {
 			if (contentLoaded[divID] == false) {
 				let residues, chains;
 				switch(divID) {
-										case "helices":
+					case "helices":
 						$('#JmolDiv_helices').html( Jmol.getAppletHtml(jmol_helices, JmolInfo) );
-						Jmol.script(jmol_helices, 'set disablePopupMenu TRUE;frank off;');
-						setView('idealalpha', '0');
+						Jmol.script(jmol_helices, 'set disablePopupMenu TRUE;frank off;load =1MBN;trace only;trace 0.2;hide (*.HA);set perspectiveDepth off;zoom 250;select (*.CB or *.CA);color (*.CB) [122, 115, 191];wireframe on;wireframe reset;color [103, 203, 223];color (*.CB) [122, 115, 191];');
 					break;
 					case "strands":
 						residues = getValueByKey(moleculeProps, "2TRX")["residues"];
