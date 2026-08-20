@@ -60,7 +60,7 @@ function measurementDone() {
 		//var currentDiv = "JmolDiv_" + jmol_current._id.split("_")[1];
 		//var divWidth = document.getElementById(currentDiv).clientWidth;
 		//var fontsize = -2 * numberResidues + Math.round(divWidth / 20);
-		var fontsize = -2 * numberResidues + 30;
+		var fontsize = -2 * numberResidues + 20;
 		
 		var currentVal = arguments[arguments.length - 1];
 		currentVal = Math.round(currentVal * 10) / 10;
